@@ -1,0 +1,28 @@
+ <div class="container-fluid d-flex bg-primary justify-content-center align-items-center">
+
+   <div style="height: 100%; display: flex; flex-direction: column;justify-content: center;">
+
+     <div *ngFor="let item of inventoryItems" class="card mt-2 mb-1 bg-danger d-flex justify-content-center"
+       style=" width: 600px; padding-left: 20px; padding-right: 20px; ">
+       <div class="card-body">
+         <h5 class="card-title" style="font-size: 30px; color: white;">Product Name : {{item.pName}}</h5>
+         <p class="card-text" style=" font-size: 25px; font-weight: bolder;color: yellow; ">Product Id :
+           {{item.pId}}</p>
+         <p class="card-text" style="font-size: 20px;font-weight: bolder; color: hotpink;">Product Price :
+           {{item.pPrice}}</p>
+         <p class="card-text" style="font-size: 15px;font-weight: bolder; color:cyan;">Product Quantity :
+           {{item.pQty}}</p>
+         <div class="d-flex flex-column justify-content-center align-items-center">
+           <button class="btn btn-success" (click)="manage()">Management Inventory</button>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+   <div class="row">
+
+
+   </div>
+
+ </div>

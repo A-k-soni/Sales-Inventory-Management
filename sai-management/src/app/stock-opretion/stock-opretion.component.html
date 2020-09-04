@@ -1,0 +1,63 @@
+ <div class="container-fluid ">
+
+   <div class="row mb-4 mt-2">
+     <div class="col d-flex  justify-content-around">
+
+       <div class="card bg-success" style="width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title" style="font-size: 40px;">Add New Items</h5>
+           <p class="card-text" style="font-weight: bolder;">Manage Inventory</p>
+           <button class="btn btn-success bg-success"> <i (click)="GoToItemAdd()" class="fas fa-plus-square"
+               style="font-size:35px"></i></button>
+         </div>
+       </div>
+
+       <div class="card bg-danger" style="width: 18rem; ">
+         <div class="card-body">
+           <h5 class="card-title" style="font-size: 40px;">Remove Items</h5>
+           <p class=" card-text" style="font-weight: bolder;">Manage Inventory</p>
+           <button class="btn btn-danger bg-danger" style="font-size:35px"><i class="fas fa-minus-square"
+               (click)="GoToItemremove()"></i></button>
+         </div>
+       </div>
+
+     </div>
+   </div>
+
+   <div style="display: flex; justify-content: center; align-items: center;"><button class="btn btn-info mb-3 "
+       (click)="Home()">HOME</button>
+   </div>
+
+   <div style="display: flex; justify-content: center; align-items: center;"><button class="btn btn-info "
+       (click)="inventoryWatch()">Inventory
+       Watch</button>
+   </div>
+
+
+
+   <div class="row mt-3 ">
+     <div class="col d-flex  justify-content-around">
+
+       <div class="card bg-warning" style="width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title">Increase Quantity Of Exsisting Items </h5>
+           <p class="card-text">Manage Inventory</p>
+           <button class="btn btn-warning" style="font-size:35px"><i class="fas fa-calculator" style="color:white"
+               (click)="GoToItemIncrease()"></i></button>
+
+         </div>
+       </div>
+
+       <div class="card bg-warning" style="width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title">Decrese Quantity Of Exsisting Items </h5>
+           <p class="card-text">Manage Inventory</p>
+           <button class="btn btn-warning" style="font-size:35px"><i class="fas fa-calculator" style="color:white"
+               (click)="GoToItemDecrease()"></i></button>
+
+         </div>
+       </div>
+
+     </div>
+   </div>
+ </div>

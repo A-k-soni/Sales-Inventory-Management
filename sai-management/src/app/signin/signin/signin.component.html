@@ -1,0 +1,61 @@
+<div class="container-fluid bground ">
+  <div class="row r1"></div>
+  <div class="row r2">
+    <div class="col-4"></div>
+    <div class="col-12 col-md-4 column">
+      <div class="signInWith">
+        Sign In With
+      </div>
+      <div>
+        <div class="google">
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div id="fb-root">
+            <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default"
+              data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div>
+        <div class="userName">Email</div>
+        <div class="pholder"><input [(ngModel)]="userName" class="form-control" type="text"
+            placeholder="Enter your Email"></div>
+      </div>
+      <div>
+        <div class="password">
+          <div>Password</div>
+        </div>
+        <div class="pholder"><input [(ngModel)]="password" class="form-control" type="password"
+            placeholder="Enter your password" pattern=""></div>
+
+      </div>
+      <div class="bdiv">
+        <button (click)="signin()" class="button">Sign In</button>
+
+      </div>
+      <br>
+
+      <div style="display: flex;justify-content:space-between">
+        <div class="fpassword" style="padding-left:20px; ">
+          <button type="button" (click)="forgetp()" class="btn btn-info"
+            style="padding-left:23px;padding-right:23px">Forget
+            Password</button>
+        </div>
+
+        <div class="fpassword" style="padding-right:20px">
+          <button type="button" (click)="register()" class="btn btn-info"
+            style="padding-left:34px;padding-right:34px">Register
+            Here </button>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="col-4"></div>
+  </div>
+  <div class="row r3"></div>
+</div>
