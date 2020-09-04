@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
   templateUrl: './buyer.component.html',
   styleUrls: ['./buyer.component.scss']
 })
+
+
+
 export class BuyerComponent implements OnInit {
+  del: string = sessionStorage.getItem('del');
   Date: number = Date.now();
 
   constructor(private http: HttpClient, private router: Router, private headerUpdate: HeaderUpdateService) { }
@@ -52,4 +56,11 @@ export class BuyerComponent implements OnInit {
     this.router.navigate(['3']);
   }
 
+
+
+  async delProfile() {
+
+
+
+  }
 }

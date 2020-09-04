@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +17,18 @@ import { AdminComponent } from './admin/admin.component';
 import { DecreaseitemsComponent } from './decreaseitems/decreaseitems.component';
 import { BuyerComponent } from './buyer/buyer.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { NgModule } from '@angular/core';
+
+const googleLoginOptions: any = {
+  scope: 'profile email',
+}; // https://developers.google.com/api-client-library/javascript/reference/referencedocs#gapiauth2clientconfig
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,16 +44,33 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     AdminComponent,
     DecreaseitemsComponent,
     BuyerComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '104476919506-4mtr6olta48hqkit61h2h02js5ojejln.apps.googleusercontent.com',
+              googleLoginOptions
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

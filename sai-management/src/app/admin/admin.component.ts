@@ -4,6 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HeaderUpdateService } from '../header-update.service';
 
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+  SocialUser,
+} from 'angularx-social-login';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -11,8 +17,10 @@ import { HeaderUpdateService } from '../header-update.service';
 })
 export class AdminComponent implements OnInit {
   Date: number = Date.now();
+  city: string;
+  result: any = { main: {} };
 
-  constructor(private router: Router, private updateHeader: HeaderUpdateService) { }
+  constructor(private router: Router, private authService: SocialAuthService, private http: HttpClient, private updateHeader: HeaderUpdateService) { }
 
   ngOnInit(): void {
     if (!sessionStorage.getItem('key')) {
@@ -30,6 +38,22 @@ export class AdminComponent implements OnInit {
   }
 
 
+  async getWeather() {
+
+    const q = this.city;
+
+    this.result = await this.http.get("http://api.openweathermap.org/data/2.5/weather?q=" + q + "&appid=24060611d6b664b49a70569445952941&units=metric").toPromise();
+    console.log(this.result);
+
+    this.city = "";
+
+
+
+
+  }
+
+
+
   inventoryWatch() {
 
     this.router.navigate(['6']);
@@ -40,11 +64,16 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['7'])
   }
 
+
+
   logOut() {
     this.updateHeader.hide.next(false
     );
     sessionStorage.removeItem('key');
+
     this.router.navigate(['3']);
+    this.authService.signOut();
+
   }
 
 }

@@ -29,13 +29,31 @@
 
         <div class="card " style="width: 9rem;">
           <ul class="list-group list-group-flush ">
-            <li class="list-group-item bg-primary" style="display: flex; justify-content: center; align-items: center;">
+            <li class="list-group-item bg-primary"
+              style="font-size: 15px;display: flex; justify-content: center; align-items: center;">
               DATE :
               {{Date | date:'dd/MM/yyyy'}}</li>
-            <li class="list-group-item bg-white" style="display: flex; justify-content: center; align-items: center;">
+            <li class="list-group-item bg-white"
+              style="font-size: 20px;display: flex; justify-content: center; align-items: center;">
               TIME :
               {{Date | date:'HH:mm'}}</li>
           </ul>
+
+          <div>
+
+
+            <li class="list-group-item bg-primary"
+              style="font-size: 18px; display: flex; justify-content: center; align-items: center;">
+              Temp : {{result.main.temp}} .C
+            </li>
+
+
+            <input type="text" name="city" [(ngModel)]="city" id="" class="form-control" placeholder="City">
+            <button class="btn btn-success " style="width: 178px;" (click)="getWeather()">Get Weather</button>
+
+
+          </div>
+
         </div>
 
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgetp.component.scss']
 })
 export class ForgetpComponent implements OnInit {
-
+  user: any = new Object();
   constructor(private http: HttpClient, private router: Router) { }
 
   email: string;
@@ -34,21 +34,19 @@ export class ForgetpComponent implements OnInit {
       password: this.password
     }
 
-    if (this.email == undefined || this.mobile == undefined || this.password == undefined) {
-      alert("All Field Are Required");
-    } else {
-      this.forgotResult = await this.http.put('http://localhost:8080/forgot', values).toPromise();
 
-      if (this.forgotResult.message == "success") {
-        alert("Password Changed");
-        this.router.navigate(['3'])
-      } else if (this.forgotResult.message == "failed") {
-        alert("Invalid Credentials");
-        window.location.reload();
-      }
+    this.forgotResult = await this.http.put('http://localhost:8080/forgot', this.user).toPromise();
+
+    if (this.forgotResult.message == "success") {
+      alert("Password Changed");
+      this.router.navigate(['3'])
+    } else if (this.forgotResult.message == "failed") {
+      alert("Invalid Credentials");
+      window.location.reload();
     }
-
   }
+
+
 
 
 
